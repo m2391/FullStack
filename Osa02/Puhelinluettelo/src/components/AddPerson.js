@@ -1,5 +1,5 @@
 import React from 'react'
-
+//Uuden henkilön lisääminen lomakkeella.
 const NewPerson = (props) => {
     return (
         <form onSubmit={props.addPerson}>

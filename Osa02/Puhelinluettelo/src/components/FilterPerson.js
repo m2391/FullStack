@@ -1,5 +1,5 @@
 import React from 'react'
-
+//Etsitään tietokannasta henkilöä
 const FilterPerson = (props) => {
     return (
         <form>

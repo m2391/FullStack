@@ -81,7 +81,7 @@ const App = () => {
           })
           .catch(error => {
             console.log(error);
-            setErrorMessage("Uptade is completed");
+            setErrorMessage("Update is completed!");
           });
         setPersons(persons.concat(personObject));
         setErrorMessage(` ${personObject.name} number was changed`);

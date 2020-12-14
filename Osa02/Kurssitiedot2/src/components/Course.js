@@ -1,19 +1,23 @@
 import React from 'react'
 
+//otsikko
 const Header = props =>
   <h2>{props.course.name}</h2>
 
+//yksittäisen kurssin nimi ja sen tehtävät
 const Part = props =>
   <p>{props.name} {props.exercises}</p>
 
+//opintojakson sisältö
 const Content = (props) => {
-    return (
+  console.log(props) 
+  return (
         <div>
             {props.course.parts.map(part => <Part key={part.id} name={part.name} exercises={part.exercises} />)}  
         </div>
     )
 }
-
+//käydään läpi kurssin tehtävät
 const Total = (props) => {
     const parts = props.course.parts.map(course => course.exercises)
   
@@ -24,7 +28,6 @@ const Total = (props) => {
 
 const Course = (props) => {  
     
-
     return (
         <div>
             <Header course={props.course} />
@@ -33,5 +36,5 @@ const Course = (props) => {
         </div>
   )
 }
-
+//exportataan Course eteenpäin
 export default Course

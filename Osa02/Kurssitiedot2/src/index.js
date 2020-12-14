@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Course from './components/Course.js'
+//muistetaan importata components-kansiosta Course
 
 const App = () => {
+  //kurssien tiedot kovakoodattuna
   const courses = [
     {
       name: 'Half Stack application development',
@@ -42,9 +44,9 @@ const App = () => {
       ]
     }
   ]
-  
+  //hyödynnetään Coursea, kun käydään taulukko läpi
     return (
-      <div>
+      <div> 
           <h1>Web development curriculum</h1>
           {courses.map(course => <Course key = {course.id} course={course} />)}
       </div>
