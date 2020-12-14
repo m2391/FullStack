@@ -9,21 +9,21 @@ const StatisticsLine = ({text, value}) => (
   <tr><td>{text}</td><td>{value}</td></tr>
 )
 
-const Average = ({good, bad, feedbackCount}) => {
-  const average = ( good  - bad  ) / feedbackCount
+const Positive = ({good, feedCount}) => {
+  const posPercent = (good / feedCount) * 100
+
+  return ( <tr><td>Positiivista annettu: </td><td> {posPercent} %</td></tr>)
+}
+
+const Average = ({good, bad, feedCount}) => {
+  const average = ( good  - bad  ) / feedCount
 
   return (<tr><td>Palautteen keskiarvo</td><td>{average}</td></tr>)
 }
 
-const Positive = ({good, feedbackCount}) => {
-  const positivePercent = (good / feedbackCount) * 100
-
-  return ( <tr><td>Positiivista annettu: </td><td> {positivePercent} %</td></tr>)
-}
-
 const Statistics = ({good, neutral, bad}) => {
   const Counter = good + neutral + bad
-
+ //mikäli palautetta ei ole annettu, siitä ilmoitetaan
   if (Counter === 0) {
     return <p>Ei annettua palautetta! </p>
   }
@@ -35,8 +35,8 @@ const Statistics = ({good, neutral, bad}) => {
       <StatisticsLine text="Neutraali" value={neutral}/>
       <StatisticsLine text="Huono" value={bad}/>
       <StatisticsLine text="Yhteensä" value={Counter} />
-      <Average good={good} neutral={neutral} bad={bad} feedbackCount={Counter}/>
-      <Positive good={good} feedbackCount={Counter}/>
+      <Average good={good} neutral={neutral} bad={bad} feedCount={Counter}/>
+      <Positive good={good} feedCount={Counter}/>
       </tbody>
     </table>
   )
